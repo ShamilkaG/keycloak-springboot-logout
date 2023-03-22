@@ -29,7 +29,7 @@ public class IndexController {
         SimpleKeycloakAccount account = (SimpleKeycloakAccount) authentication.getDetails();
         AccessToken token = account.getKeycloakSecurityContext().getToken();
         httpSession.setAttribute(token.getSessionId(), token.getPreferredUsername());
-
+        System.out.println("token "+token.getSessionId());
         return new HashMap(){{
             put("hello", token.getPreferredUsername());
         }};
